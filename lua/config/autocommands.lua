@@ -1,2 +1,2 @@
 
-vim.cmd('au BufWritePre * call TrimWhitespace()')
+-- vim.cmd('au BufWritePre * call TrimWhitespace()')
