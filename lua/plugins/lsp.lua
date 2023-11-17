@@ -44,7 +44,7 @@ return {
           opts.capabilities = require("cmp_nvim_lsp").default_capabilities()
           opts.on_attach = function(client, buffer)
             require("illuminate").on_attach(client)
-            require("config/lsp/keymaps").on_attach(client, buffer)
+            -- require("config/lsp/keymaps").on_attach(client, buffer)
           end
 
           require("lspconfig")[server_name].setup(opts)
