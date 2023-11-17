@@ -7,20 +7,32 @@ return
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    -- "saadparwaiz1/cmp_luasnip",
-    -- "L3MON4D3/LuaSnip",
+    "dcampos/nvim-snippy",
+    "dcampos/cmp-snippy",
   },
   config = function()
     local cmp = require("cmp")
+    local luasnip = require("snippy")
 
     cmp.setup {
+      snipped = {
+        expand = function(args)
+          luasnip.expand_snippet(args.body)
+        end
+      },
       sources = {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
-      }
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = true}),
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+      }),
     }
+
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
