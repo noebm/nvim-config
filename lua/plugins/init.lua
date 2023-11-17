@@ -1,59 +1,11 @@
 return
 {
-  -- colors
-  { "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-  config = function()
-    vim.cmd.colorscheme "tokyonight"
-  end
-},
-
-
 "folke/which-key.nvim",
 -- for nvim internal documentation
 { "folke/neodev.nvim", config=true },
 
 { "RRethy/vim-illuminate" },
 { "windwp/nvim-autopairs", config=true },
--- { "dcampos/cmp-snippy" },
--- {
---   "hrsh7th/nvim-cmp",
---   dependencies = {
---     "hrsh7th/cmp-nvim-lsp",
---     "hrsh7th/cmp-nvim-lsp-signature-help",
---   },
-
---   config = function()
---     local cmp = require("cmp")
---     -- @diagnostic disable: missing-fields
---     cmp.setup({
---       mapping = cmp.mapping.preset.insert({
---         ["<Up>"] = cmp.mapping.select_prev_item(),
---       })
---     })
---   end
--- },
-{
-  "hrsh7th/nvim-cmp",
-  dependencies = {
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-nvim-lua",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  -- "saadparwaiz1/cmp_luasnip",
-  -- "L3MON4D3/LuaSnip",
-  },
-  config = function()
-    require('cmp').setup {
-      -- sources = {
-      --   { name = 'nvim_lsp'}
-      -- }
-    }
-  end
-},
 
 -- lspconfig / mason setup
 { "williamboman/mason.nvim", config=true },
