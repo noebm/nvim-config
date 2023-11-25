@@ -31,8 +31,13 @@ return {
             require("neodev").setup({})
             opts.settings = {
               Lua = {
+                -- format = { enable = false },
                 completion = { callSnippet = "Replace" },
                 workspace = { checkThirdParty = false },
+                window = {
+                  progressBar = false,
+                  statusBar = false,
+                },
                 diagnostics = {
                   -- globals = 'vim',
                   disable = { 'missing-fields' }
