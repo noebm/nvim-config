@@ -1,15 +1,24 @@
-return
-{
+return {
   "jay-babu/mason-null-ls.nvim",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
-    { "jose-elias-alvarez/null-ls.nvim", config = true },
+    {
+      "jose-elias-alvarez/null-ls.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = true,
+    },
   },
   config = function()
+    local null_ls = require("null-ls")
     -- require("your.null-ls.config") -- require your null-ls config here (example below)
     require("mason-null-ls").setup({
-      ensure_installed = { "jq" }
+      ensure_installed = { "jq" },
+      handlers = {
+        -- stylua = function(_, _)
+        --   null_ls.register(null_ls.builtins.formatting.stylua)
+        -- end,
+      },
     })
 
     -- local null_ls = require("null-ls")
