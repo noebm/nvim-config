@@ -1,5 +1,6 @@
 local bufmap = function(mode, lhs, rhs)
-  vim.keymap.set(mode, lhs, rhs, { buffer = true })
+  -- vim.keymap.set(mode, lhs, rhs, { buffer = true })
+  vim.keymap.set(mode, lhs, rhs)
 end
 
 bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
