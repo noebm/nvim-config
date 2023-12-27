@@ -8,6 +8,10 @@ return
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-signature-help",
+
+    -- "hrsh7th/cmp-vsnip",
+    -- "hrsh7th/vim-vsnip",
+
     "dcampos/nvim-snippy",
     "dcampos/cmp-snippy",
   },
@@ -16,18 +20,19 @@ return
     local luasnip = require("snippy")
 
     cmp.setup {
-      snipped = {
+      snippet = {
         expand = function(args)
           luasnip.expand_snippet(args.body)
         end
       },
-      sources = {
+      sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
+        { name = "snippy" },
         { name = "nvim_lsp_signature_help" },
         { name = "buffer" },
         { name = "path" },
-      },
+      }),
       mapping = cmp.mapping.preset.insert({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping.select_next_item(),
